@@ -1,7 +1,24 @@
 local lsp = require('lsp-zero')
 local lsp_config = require('lspconfig')
 
-lsp.preset("recommended")
+lsp.preset({
+    float_border = 'rounded',
+    call_servers = 'local',
+    configure_diagnostics = true,
+    setup_servers_on_start = true,
+    set_lsp_keymaps = {
+        preserve_mappings = false,
+        omit = {},
+    },
+    manage_nvim_cmp = {
+        set_sources = 'lsp',
+        set_basic_mappings = true,
+        set_extra_mappings = false,
+        use_luasnip = true,
+        set_format = true,
+        documentation_window = true,
+    },
+})
 
 lsp.ensure_installed({
     'tsserver',
@@ -73,6 +90,39 @@ lsp.on_attach(function(_, bufnr)
         vim.lsp.buf.format()
     end, { desc = 'Format current buffer with LSP' })
 end)
+
+local cmp = require('cmp')
+
+cmp.setup({
+    sources = {
+        { name = 'copilot' },
+        { name = 'path' },
+        { name = 'nvim_lsp' },
+        { name = 'buffer',  keyword_length = 3 },
+        { name = 'luasnip', keyword_length = 2 },
+    },
+    mapping = {
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+    }
+})
+
 
 lsp.skip_server_setup({ 'rust_analyzer' })
 
