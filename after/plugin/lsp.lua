@@ -5,7 +5,6 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
     'tsserver',
-    'rust_analyzer',
     'lua_ls',
     'gopls',
     'svelte',
@@ -46,8 +45,8 @@ lsp.on_attach(function(_, bufnr)
         vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
     end
 
-    map('n', '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-    map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+    map('n', '<leader>lr', vim.lsp.buf.rename, '[R]ename')
+    map('n', '<leader>lc', vim.lsp.buf.code_action, '[C]ode Action')
 
     map('n', 'gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -74,6 +73,23 @@ lsp.on_attach(function(_, bufnr)
     end, { desc = 'Format current buffer with LSP' })
 end)
 
-
+lsp.skip_server_setup({ 'rust_analyzer' })
 
 lsp.setup()
+
+
+local rust_tools = require('rust-tools')
+
+rust_tools.setup({
+    server = {
+        on_attach = function(_, bufnr)
+            local map = function(mode, keys, func, desc)
+                if desc then
+                    desc = 'Rust Tools: ' .. desc
+                end
+                vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
+            end
+            map('n', '<leader>rh', rust_tools.hover_actions.hover_actions, '[H]over Actions')
+        end
+    }
+})
