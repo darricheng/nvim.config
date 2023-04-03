@@ -26,6 +26,7 @@ lsp.ensure_installed({
     'lua_ls',
     'gopls',
     'svelte',
+    'clangd'
 })
 
 lsp_config.lua_ls.setup({
