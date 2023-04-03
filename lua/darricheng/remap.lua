@@ -20,6 +20,12 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
+-- Terminal Mode keymaps
+-- Two button press enter terminal mode ready to type
+vim.keymap.set('n', '<leader>t', ':terminal<CR>i')
+-- Map Esc to exit terminal mode into normal mode
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
