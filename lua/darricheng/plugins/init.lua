@@ -110,4 +110,8 @@ return {
     'folke/trouble.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
   },
+  {
+    -- Vim Motions practice
+    'ThePrimeagen/vim-be-good'
+  },
 }
