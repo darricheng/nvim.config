@@ -20,10 +20,6 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
--- Yank keymaps
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank line to system clipboard" })
-vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank cursor to end of line to system clipboard" })
-
 -- Terminal Mode keymaps
 -- Two button press enter terminal mode ready to type
 vim.keymap.set('n', '<leader>t', ':terminal<CR>i', { desc = "Enter terminal" })
