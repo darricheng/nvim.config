@@ -30,9 +30,6 @@ vim.keymap.set('n', '<leader>t', ':terminal<CR>i', { desc = "Enter terminal" })
 -- Map Esc to exit terminal mode into normal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.relativenumber = true
-vim.opt.scrolloff = 16
+-- Center editor around cursor when scrolling vertically
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
