@@ -37,7 +37,8 @@ return {
       },
     },
   },
-
+  -- Seems to be a dependency for many plugins
+  'nvim-lua/plenary.nvim',
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -109,6 +110,10 @@ return {
   {
     'folke/trouble.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
+  },
+  {
+    -- For easier access of those few frequently accessed files
+    'ThePrimeagen/harpoon'
   },
   {
     -- Vim Motions practice
