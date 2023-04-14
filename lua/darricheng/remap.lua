@@ -40,3 +40,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- This will retain the original text in the register so you can paste it again
 -- As compared to normal p to paste which will replace the register with the deleted word
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste text and retain register" })
+
+-- Delete text without putting it in the register
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete text into black hole" })

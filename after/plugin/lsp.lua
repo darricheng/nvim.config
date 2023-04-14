@@ -71,8 +71,8 @@ lsp.on_attach(function(_, bufnr)
     map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
     map('n', 'gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
     map('n', '<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-    map('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-    map('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+    map('n', '<leader>Sd', require('telescope.builtin').lsp_document_symbols, '[S]ymbols: [D]ocument')
+    map('n', '<leader>Sw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]ymbols: [W]orkspace')
 
     -- See `:help K` for why this keymap
     map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
