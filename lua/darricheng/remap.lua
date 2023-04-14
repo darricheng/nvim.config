@@ -35,3 +35,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- zv should take care of folds if any
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+-- Use when pasting over text in visual mode
+-- This will retain the original text in the register so you can paste it again
+-- As compared to normal p to paste which will replace the register with the deleted word
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste text and retain register" })
