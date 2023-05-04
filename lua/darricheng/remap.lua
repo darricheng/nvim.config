@@ -15,7 +15,6 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Hover Diagnostics" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Set Location List" })
 
 -- Terminal Mode keymaps

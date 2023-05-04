@@ -64,22 +64,12 @@ lsp.on_attach(function(_, bufnr)
         vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
     end
 
-    map('n', '<leader>lr', vim.lsp.buf.rename, '[R]ename')
-    map('n', '<leader>lc', vim.lsp.buf.code_action, '[C]ode Action')
-
-    map('n', 'gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
     map('n', 'gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-    map('n', '<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
     map('n', '<leader>Sd', require('telescope.builtin').lsp_document_symbols, '[S]ymbols: [D]ocument')
     map('n', '<leader>Sw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]ymbols: [W]orkspace')
 
-    -- See `:help K` for why this keymap
-    map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
-    map('n', '<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
     -- Lesser used LSP functionality
-    map('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
     map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
     map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
     map('n', '<leader>wl', function()
@@ -106,7 +96,7 @@ cmp.setup({
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
-        ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+        ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
