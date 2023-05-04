@@ -43,3 +43,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 16
+
+-- Set vertical split to open on the right by default
+vim.cmd [[set splitright]]

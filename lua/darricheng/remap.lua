@@ -19,7 +19,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Set Locati
 
 -- Terminal Mode keymaps
 -- Two button press enter terminal mode ready to type
-vim.keymap.set('n', '<leader>t', ':sp<CR>:terminal<CR>i', { desc = "Open terminal in horizontal split" })
+vim.keymap.set('n', '<leader>t', ':vs<CR>:terminal<CR>i', { desc = "Enter terminal" })
 -- Map Esc to exit terminal mode into normal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
