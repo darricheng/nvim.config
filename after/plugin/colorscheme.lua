@@ -1,7 +1,7 @@
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd.colorscheme "catppuccin-frappe"
 
 require('lualine').setup {
     options = {
-        theme = 'tokyonight'
+        theme = 'catppuccin'
     }
 }
