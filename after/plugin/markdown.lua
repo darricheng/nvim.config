@@ -1,0 +1,2 @@
+-- The leader key prefix for the table mode plugin is changed in the main remap.lua file.
+-- This should be due to how the Lazy plugin manager works with global vim variables, as it seems similar to why the leader key is set before plugins are required.
