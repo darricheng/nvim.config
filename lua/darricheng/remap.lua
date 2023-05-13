@@ -29,6 +29,8 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 -- Center editor around cursor when scrolling vertically
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-f>", "<C-f>zz")
+vim.keymap.set("n", "<C-b>", "<C-b>zz")
 
 -- Center editor when repeating the search with / or ?
 -- zz centers the cursor line in the middle of the screen,
