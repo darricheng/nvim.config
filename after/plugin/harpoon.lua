@@ -1,5 +1,5 @@
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
+local hm = require("harpoon.mark")
+local hu = require("harpoon.ui")
 
 local map = function(keys, func, desc)
     if desc then
@@ -7,5 +7,5 @@ local map = function(keys, func, desc)
     end
     vim.keymap.set("n", keys, func, { desc = desc })
 end
-map("<leader>ha", mark.add_file, "Mark file of current buffer")
-map("<leader>hh", ui.toggle_quick_menu, "Open list of marked files")
+map("<leader>ha", hm.add_file, "Mark file of current buffer")
+map("<leader>hh", hu.toggle_quick_menu, "Open list of marked files")

@@ -20,12 +20,6 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Set Location List" })
 
--- Terminal Mode keymaps
--- Two button press enter terminal mode ready to type
-vim.keymap.set('n', '<leader>t', ':vs<CR>:terminal<CR>i', { desc = "Enter terminal" })
--- Map Esc to exit terminal mode into normal mode
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
-
 -- Center editor around cursor when scrolling vertically
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
