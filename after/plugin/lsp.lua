@@ -84,6 +84,9 @@ end)
 
 local cmp = require('cmp')
 
+-- Load FriendlySnippets
+require('luasnip.loaders.from_vscode').lazy_load()
+
 cmp.setup({
     sources = {
         { name = 'copilot' },
