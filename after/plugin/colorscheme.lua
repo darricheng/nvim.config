@@ -1,8 +1,2 @@
--- vim.cmd.colorscheme "catppuccin-frappe"
+-- Default colorscheme
 vim.cmd.colorscheme "tokyonight"
-
--- require('lualine').setup {
---     options = {
---         theme = 'catppuccin'
---     }
--- }
