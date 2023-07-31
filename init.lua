@@ -1,1 +1,1 @@
-require("darricheng")
+require 'darricheng'

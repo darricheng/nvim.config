@@ -2,8 +2,22 @@
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'rust', 'tsx', 'typescript', 'javascript', 'svelte', 'vimdoc',
-    'markdown', 'markdown_inline', 'json', 'toml' },
+  ensure_installed = {
+    'c',
+    'cpp',
+    'go',
+    'lua',
+    'rust',
+    'tsx',
+    'typescript',
+    'javascript',
+    'svelte',
+    'vimdoc',
+    'markdown',
+    'markdown_inline',
+    'json',
+    'toml',
+  },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -66,8 +80,8 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- [[ Configure Treesitter Context ]]
-require('treesitter-context').setup({
+require('treesitter-context').setup {
   -- Make context always show for top-most code block
   -- Other alternative is 'cursor', where context only shows if my cursor is in that top-most code block
   mode = 'topline',
-})
+}
