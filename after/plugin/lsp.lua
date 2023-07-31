@@ -54,22 +54,6 @@ lsp_config.lua_ls.setup({
 lsp.on_attach(function(_, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
 
-    -- Format on save
-    -- TODO: Remove once I get formatter.nvim working
-    lsp.format_on_save({
-        format_opts = {
-            async = true,
-            timeout_ms = 10000,
-        },
-        servers = {
-            ['lua_ls'] = { 'lua' },
-            ['rust_analyzer'] = { 'rust' },
-            ['svelte'] = { 'svelte' },
-            ['clangd'] = { 'c', 'cpp' },
-            ['gopls'] = { 'go' },
-        }
-    })
-
     local map = function(mode, keys, func, desc)
         if desc then
             desc = 'LSP: ' .. desc
