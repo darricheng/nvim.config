@@ -48,7 +48,7 @@ local format_on_save_group = vim.api.nvim_create_augroup('FormatAutogroup', { cl
 vim.api.nvim_create_autocmd('BufWritePost', {
   group = format_on_save_group,
   pattern = '*',
-  -- command = 'FormatWrite', -- Use Format as FormatWrite can't save when there's errors
+  command = 'FormatWrite',
 })
 
 -- Keymaps
