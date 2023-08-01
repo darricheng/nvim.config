@@ -18,9 +18,12 @@ require('nvim-treesitter.configs').setup {
     'json',
     'toml',
   },
-
+  sync_install = false,
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-  auto_install = false,
+  auto_install = true,
+
+  ignore_install = {},
+  modules = {},
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
