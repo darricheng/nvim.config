@@ -10,35 +10,35 @@ formatter.setup {
     lua = {
       require('formatter.filetypes.lua').stylua,
     },
-    js = {
-      require('formatter.filetypes.javascript').prettier,
+    javascript = {
+      require('formatter.filetypes.javascript').prettierd,
     },
-    jsx = {
-      require('formatter.filetypes.javascriptreact').prettier,
+    javascriptreact = {
+      require('formatter.filetypes.javascriptreact').prettierd,
     },
-    ts = {
-      require('formatter.filetypes.typescript').prettier,
+    typescript = {
+      require('formatter.filetypes.typescript').prettierd,
     },
-    tsx = {
-      require('formatter.filetypes.typescriptreact').prettier,
+    typescriptreact = {
+      require('formatter.filetypes.typescriptreact').prettierd,
     },
     svelte = {
       require('formatter.filetypes.svelte').prettier,
     },
     html = {
-      require('formatter.filetypes.html').prettier,
+      require('formatter.filetypes.html').prettierd,
     },
     css = {
-      require('formatter.filetypes.css').prettier,
+      require('formatter.filetypes.css').prettierd,
     },
     json = {
-      require('formatter.filetypes.json').prettier,
+      require('formatter.filetypes.json').prettierd,
     },
     rust = {
       require('formatter.filetypes.rust').rustfmt,
     },
     markdown = {
-      require('formatter.filetypes.markdown').prettier,
+      require('formatter.filetypes.markdown').prettierd,
     },
   },
 }
