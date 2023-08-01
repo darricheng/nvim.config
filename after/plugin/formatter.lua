@@ -23,7 +23,14 @@ formatter.setup {
       require('formatter.filetypes.typescriptreact').prettierd,
     },
     svelte = {
-      require('formatter.filetypes.svelte').prettier,
+      -- require('formatter.filetypes.svelte').prettier,
+      function()
+        return {
+          exe = 'prettierd',
+          args = { util.escape_path(util.get_current_buffer_file_path()) },
+          stdin = true,
+        }
+      end,
     },
     html = {
       require('formatter.filetypes.html').prettierd,
