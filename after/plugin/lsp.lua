@@ -27,6 +27,7 @@ lsp.ensure_installed {
   'gopls',
   'svelte',
   'clangd',
+  'pyright',
 }
 
 lsp_config.lua_ls.setup {
@@ -72,7 +73,6 @@ lsp.on_attach(function(_, bufnr)
   map('n', '<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
-
 end)
 
 local cmp = require 'cmp'

@@ -47,6 +47,9 @@ formatter.setup {
     markdown = {
       require('formatter.filetypes.markdown').prettierd,
     },
+    python = {
+      require('formatter.filetypes.python').black,
+    },
   },
 }
 
