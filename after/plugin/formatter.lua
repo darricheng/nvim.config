@@ -47,6 +47,9 @@ formatter.setup {
     markdown = {
       require('formatter.filetypes.markdown').prettierd,
     },
+    toml = {
+      require('formatter.filetypes.toml').taplo,
+    },
     python = {
       require('formatter.filetypes.python').black,
     },
