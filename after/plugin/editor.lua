@@ -16,3 +16,8 @@ require('no-neck-pain').setup {
     scratchPad = '<Leader>ns',
   },
 }
+
+-- blankline indentation configs
+require('indent_blankline').setup {
+  show_current_context = true,
+}
