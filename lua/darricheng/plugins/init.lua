@@ -113,4 +113,9 @@ return {
     -- Formatting and (maybe) linting
     'mhartington/formatter.nvim',
   },
+  {
+    -- Center the editor so that I don't have to constantly be looking to the left of my screen
+    'shortcuts/no-neck-pain.nvim',
+    version = '*',
+  },
 }
