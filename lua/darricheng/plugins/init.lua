@@ -118,4 +118,10 @@ return {
     'shortcuts/no-neck-pain.nvim',
     version = '*',
   },
+  {
+    -- Highlight TODO comments and stuff
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {},
+  },
 }
