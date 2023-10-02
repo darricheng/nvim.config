@@ -18,6 +18,11 @@ require('no-neck-pain').setup {
 }
 
 -- blankline indentation configs
-require('indent_blankline').setup {
-  show_current_context = true,
+require('ibl').setup {
+  -- Setup config for indent_blankline goes here
+  -- See :h ibl.setup for more info
+  scope = {
+    show_start = false,
+    show_end = false,
+  },
 }
