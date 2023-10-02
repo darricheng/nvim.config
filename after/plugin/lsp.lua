@@ -1,60 +1,49 @@
-local lsp = require 'lsp-zero'
-local lsp_config = require 'lspconfig'
+local lsp_zero = require 'lsp-zero'
 
-lsp.preset {
-  float_border = 'rounded',
-  call_servers = 'local',
-  configure_diagnostics = true,
-  setup_servers_on_start = true,
-  set_lsp_keymaps = {
-    preserve_mappings = false,
-    omit = {},
+-- setup and install language servers
+require('mason').setup {}
+require('mason-lspconfig').setup {
+  ensure_installed = {
+    'tsserver',
+    'rust_analyzer',
+    'lua_ls',
+    'gopls',
+    'svelte',
+    'clangd',
+    'pyright',
   },
-  manage_nvim_cmp = {
-    set_sources = 'lsp',
-    set_basic_mappings = true,
-    set_extra_mappings = false,
-    use_luasnip = true,
-    set_format = true,
-    documentation_window = true,
-  },
-}
-
-lsp.ensure_installed {
-  'tsserver',
-  'rust_analyzer',
-  'lua_ls',
-  'gopls',
-  'svelte',
-  'clangd',
-  'pyright',
-}
-
-lsp_config.lua_ls.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
-      },
-      workspace = {
-        checkThirdParty = false,
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file('', true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = { enable = false },
-    },
+  handlers = {
+    lsp_zero.default_setup,
+    -- use rust tools to setup rust analyzer instead
+    rust_analyzer = function()
+      local rt = require 'rust-tools'
+      rt.setup {
+        server = {
+          on_attach = function(_, bufnr)
+            local map = function(mode, keys, func, desc)
+              if desc then
+                desc = '[R]ust Tools: ' .. desc
+              end
+              vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
+            end
+            map('n', '<leader>rh', rt.hover_actions.hover_actions, '[H]over Actions')
+            map('n', '<leader>rc', rt.code_action_group.code_action_group, '[C]ode Action Group')
+          end,
+        },
+      }
+    end,
+    lua_ls = function()
+      local lua_opts = lsp_zero.nvim_lua_ls()
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
   },
 }
 
-lsp.on_attach(function(_, bufnr)
-  lsp.default_keymaps { buffer = bufnr }
+-- lsp functionality keymaps
+lsp_zero.on_attach(function(_, bufnr)
+  lsp_zero.default_keymaps { buffer = bufnr }
 
+  -- function to reduce boilerplate for setting keymaps
   local map = function(mode, keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
@@ -64,6 +53,10 @@ lsp.on_attach(function(_, bufnr)
 
   map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   map('n', 'gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+  map('n', '<leader>lr', vim.lsp.buf.rename, '[L]SP [R]ename')
+  map('n', '<leader>lc', vim.lsp.buf.code_action, '[L]SP [C]ode Action')
+
+  -- search symbols
   map('n', '<leader>Sd', require('telescope.builtin').lsp_document_symbols, '[S]ymbols: [D]ocument')
   map('n', '<leader>Sw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]ymbols: [W]orkspace')
 
@@ -75,10 +68,11 @@ lsp.on_attach(function(_, bufnr)
   end, '[W]orkspace [L]ist Folders')
 end)
 
-local cmp = require 'cmp'
-
 -- Load FriendlySnippets
 require('luasnip.loaders.from_vscode').lazy_load()
+
+-- autocompletion
+local cmp = require 'cmp'
 
 cmp.setup {
   sources = {
@@ -88,44 +82,15 @@ cmp.setup {
     { name = 'buffer', keyword_length = 3 },
     { name = 'luasnip', keyword_length = 2 },
   },
-  mapping = {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
+  mapping = cmp.mapping.preset.insert {
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
   },
-}
-
-lsp.skip_server_setup { 'rust_analyzer' }
-
-lsp.setup()
-
-local rust_tools = require 'rust-tools'
-
-rust_tools.setup {
-  server = {
-    on_attach = function(_, bufnr)
-      local map = function(mode, keys, func, desc)
-        if desc then
-          desc = 'Rust Tools: ' .. desc
-        end
-        vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
-      end
-      map('n', '<leader>rh', rust_tools.hover_actions.hover_actions, '[H]over Actions')
-    end,
+  -- makes the windows bordered so that they clearly float on top of the editor
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
+  -- show the source that created the completion item
+  formatting = lsp_zero.cmp_format(),
 }
