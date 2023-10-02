@@ -1,5 +1,5 @@
 -- Map Esc to exit terminal mode into normal mode
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+vim.keymap.set('t', '<Esc><Esc>', [[<C-\><C-n>]])
 
 local map = function(keys, func, desc)
   if desc then
