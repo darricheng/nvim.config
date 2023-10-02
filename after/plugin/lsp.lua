@@ -83,6 +83,10 @@ cmp.setup {
     { name = 'luasnip', keyword_length = 2 },
   },
   mapping = cmp.mapping.preset.insert {
+    ['<C-y>'] = cmp.mapping.confirm {
+      -- selects the first item if none are selected
+      select = true,
+    },
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
   },
