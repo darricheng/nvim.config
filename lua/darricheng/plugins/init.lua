@@ -97,10 +97,6 @@ return {
     'ThePrimeagen/harpoon',
   },
   {
-    -- Vim Motions practice
-    'ThePrimeagen/vim-be-good',
-  },
-  {
     -- Plain text table creating and formatting, mainly for markdown files
     'dhruvasagar/vim-table-mode',
   },
