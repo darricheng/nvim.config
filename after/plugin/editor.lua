@@ -26,3 +26,10 @@ require('ibl').setup {
     show_end = false,
   },
 }
+
+-- undotree configs
+-- open undotree on the right and diff below
+vim.g.undotree_WindowLayout = 2
+-- width of the undotree window
+vim.g.undotree_SplitWidth = 40
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
