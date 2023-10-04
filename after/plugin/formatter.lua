@@ -67,3 +67,15 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- Keymaps
 vim.keymap.set('n', '<leader>f', '<cmd>:Format<cr>', { silent = true, noremap = true })
 vim.keymap.set('n', '<leader>F', '<cmd>:FormatWrite<cr>', { silent = true, noremap = true })
+
+-- Format on save using LSP for languages that don't have a dedicated formatter
+local lsp = require 'lsp-zero'
+lsp.format_on_save {
+  format_opts = {
+    async = false,
+    timeout_ms = 10000,
+  },
+  servers = {
+    ['prismals'] = { 'prisma' },
+  },
+}
