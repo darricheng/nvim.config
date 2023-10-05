@@ -1,6 +1,10 @@
 -- Map Esc to exit terminal mode into normal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
-vim.keymap.set('t', '<leader><Esc>', '<Esc>')
+-- Leaving the below as a reminder
+-- The delayed space for the leader key is too distracting
+-- Any terminal program that requires Esc, I just won't use in Neovim
+-- I have tmux, so I can easily open another terminal if needed
+-- vim.keymap.set('t', '<leader><Esc>', '<Esc>')
 
 local map = function(keys, func, desc)
   if desc then
