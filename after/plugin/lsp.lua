@@ -92,6 +92,20 @@ cmp.setup {
     { name = 'luasnip', keyword_length = 2 },
   },
   mapping = cmp.mapping.preset.insert {
+    ['<C-p>'] = cmp.mapping(function()
+      if cmp.visible() then
+        cmp.select_prev_item { behavior = 'select' }
+      else
+        cmp.complete()
+      end
+    end),
+    ['<C-n>'] = cmp.mapping(function()
+      if cmp.visible() then
+        cmp.select_next_item { behavior = 'select' }
+      else
+        cmp.complete()
+      end
+    end),
     ['<C-y>'] = cmp.mapping.confirm {
       -- selects the first item if none are selected
       select = true,
