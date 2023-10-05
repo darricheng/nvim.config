@@ -124,4 +124,7 @@ return {
       require('nvim-surround').setup {}
     end,
   },
+
+  -- neovim terminal management
+  { 'akinsho/toggleterm.nvim', version = '*' },
 }
