@@ -41,8 +41,6 @@ require('mason-lspconfig').setup {
 
 -- lsp functionality keymaps
 lsp_zero.on_attach(function(_, bufnr)
-  lsp_zero.default_keymaps { buffer = bufnr }
-
   -- function to reduce boilerplate for setting keymaps
   local map = function(mode, keys, func, desc)
     if desc then
@@ -51,10 +49,21 @@ lsp_zero.on_attach(function(_, bufnr)
     vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
   end
 
-  map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+  map('n', 'K', vim.lsp.buf.hover, 'Hover info about symbol')
+  map('n', 'gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+  map('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
   map('n', 'gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-  map('n', '<leader>lr', vim.lsp.buf.rename, '[L]SP [R]ename')
-  map('n', '<leader>lc', vim.lsp.buf.code_action, '[L]SP [C]ode Action')
+  map('n', 'go', vim.lsp.buf.type_definition, '[G]oto Type Definition')
+  map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+  map('n', 'gs', vim.lsp.buf.signature_help, '[G]oto [S]ignature')
+  map('n', '<leader>rn', vim.lsp.buf.rename, '[R]e[N]ame')
+  map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  map('n', 'gl', vim.diagnostic.open_float, 'Open diagnostic float')
+  map('n', '[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
+  map('n', ']d', vim.diagnostic.goto_next, 'Next diagnostic')
+
+  -- formatting
+  map('n', '<leader>fl', vim.lsp.buf.format, '[F]ormat with [L]SP')
 
   -- search symbols
   map('n', '<leader>Sd', require('telescope.builtin').lsp_document_symbols, '[S]ymbols: [D]ocument')
