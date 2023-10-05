@@ -1,6 +1,4 @@
 return {
-  -- NOTE: First, some plugins that don't require any configuration
-
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -42,8 +40,9 @@ return {
   },
   -- Seems to be a dependency for many plugins
   'nvim-lua/plenary.nvim',
+
+  -- Add indentation guides on blank lines
   {
-    -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
   },
@@ -67,6 +66,7 @@ return {
     end,
   },
 
+  -- Treesitter
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -75,53 +75,53 @@ return {
     },
     build = ':TSUpdate',
   },
+  'nvim-treesitter/nvim-treesitter-context',
+  'nvim-treesitter/playground',
+
+  -- autopairs
   {
-    'nvim-treesitter/nvim-treesitter-context',
-  },
-  {
-    'nvim-treesitter/playground',
-  },
-  {
-    -- autopairs
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup {}
     end,
   },
+
+  -- pick out errors easily
   {
     'folke/trouble.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
   },
-  {
-    -- For easier access of those few frequently accessed files
-    'ThePrimeagen/harpoon',
-  },
-  {
-    -- Plain text table creating and formatting, mainly for markdown files
-    'dhruvasagar/vim-table-mode',
-  },
-  {
-    -- Formatting and (maybe) linting
-    'mhartington/formatter.nvim',
-  },
+
+  -- For easier access of those few frequently accessed files
+  'ThePrimeagen/harpoon',
+  -- Plain text table creating and formatting, mainly for markdown files
+  'dhruvasagar/vim-table-mode',
+  -- Formatting and (maybe) linting
+  'mhartington/formatter.nvim',
+  -- more expressive undos
+  'mbbill/undotree',
+
   {
     -- Center the editor so that I don't have to constantly be looking to the left of my screen
     'shortcuts/no-neck-pain.nvim',
     version = '*',
   },
+
+  -- Highlight TODO comments and stuff
   {
-    -- Highlight TODO comments and stuff
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
+
+  -- deal with surrounds, such as brackets, quotes, etc
   {
-    'mbbill/undotree',
-  },
-  {
-    -- deal with surrounds, such as brackets, quotes, etc
     'kylechui/nvim-surround',
     version = '*',
     event = 'VeryLazy',
+    config = function()
+      -- empty config to use defaults
+      require('nvim-surround').setup {}
+    end,
   },
 }
