@@ -118,4 +118,10 @@ return {
   {
     'mbbill/undotree',
   },
+  {
+    -- deal with surrounds, such as brackets, quotes, etc
+    'kylechui/nvim-surround',
+    version = '*',
+    event = 'VeryLazy',
+  },
 }
