@@ -127,4 +127,8 @@ return {
 
   -- neovim terminal management
   { 'akinsho/toggleterm.nvim', version = '*' },
+
+  -- preview markdown directly in neovim
+  -- install `glow` with `brew install glow` to use this
+  { 'ellisonleao/glow.nvim', config = true, cmd = 'Glow' },
 }
