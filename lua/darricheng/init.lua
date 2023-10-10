@@ -1,5 +1,6 @@
 require 'darricheng.set'
 require 'darricheng.remap'
+require 'darricheng.browser_config'
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
