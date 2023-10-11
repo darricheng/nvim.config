@@ -4,13 +4,19 @@ local lsp_zero = require 'lsp-zero'
 require('mason').setup {}
 require('mason-lspconfig').setup {
   ensure_installed = {
-    'tsserver',
-    'rust_analyzer',
-    'lua_ls',
-    'gopls',
-    'svelte',
     'clangd',
+    'eslint-lsp',
+    'gopls',
+    'jsonls',
+    'lua_ls',
+    'marksman',
+    'prismals',
     'pyright',
+    'rust_analyzer',
+    'svelte',
+    'taplo',
+    'tsserver',
+    'yamlls',
   },
   handlers = {
     lsp_zero.default_setup,
