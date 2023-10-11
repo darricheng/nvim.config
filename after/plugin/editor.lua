@@ -3,6 +3,7 @@ vim.cmd.colorscheme 'tokyonight'
 
 -- no-neck-pain configs
 require('no-neck-pain').setup {
+  width = 110,
   mappings = {
     -- enables key mappings for no-neck-pain
     enabled = true,
