@@ -11,7 +11,7 @@ local map = function(keys, func, desc)
     desc = '[T]erminal: ' .. desc
   end
   if keys then
-    keys = '<leader>t' .. keys
+    keys = '<leader>' .. keys
   end
   vim.keymap.set('n', keys, func, { desc = desc })
 end
@@ -20,11 +20,11 @@ require('toggleterm').setup {
   hide_numbers = false,
 }
 
-map('f', ':ToggleTerm direction=float<CR>', 'Open [F]loat')
-map('v', ':ToggleTerm direction=vertical<CR>', 'Open [V]ertical')
-map('h', ':ToggleTerm direction=horizontal<CR>', 'Open [H]orizontal')
-map('t', ':ToggleTermToggleAll<CR>', '[T]oggle All')
+map('t', ':ToggleTerm direction=float<CR>', 'Open [F]loat')
+-- map('v', ':ToggleTerm direction=vertical<CR>', 'Open [V]ertical')
+-- map('h', ':ToggleTerm direction=horizontal<CR>', 'Open [H]orizontal')
 
+-- NOTE: Previous implementation with harpoon
 -- -- Must call gotoTerminal in an anonymous function.
 -- -- Otherwise it will be called and immediately opens the terminal when I open neovim.
 -- -- Also results in an error.
