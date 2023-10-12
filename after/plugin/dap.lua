@@ -8,7 +8,8 @@ require('mason-nvim-dap').setup {
 
   -- You can provide additional configuration to the handlers,
   -- see mason-nvim-dap README for more information
-  handlers = {},
+  -- NOTE: I think nil here is important so that I don't work with the defaults from mason-nvim-dap, which would make my debugging process harder
+  handlers = nil,
 
   -- You'll need to check that you have the required things installed
   -- online, please don't ask me how to install them :)
@@ -26,20 +27,33 @@ require('mason-nvim-dap').setup {
 dap.adapters['pwa-node'] = {
   type = 'server',
   host = '::1',
-  port = 8123,
+  port = 9229,
   executable = {
     command = 'js-debug-adapter',
   },
 }
+
+-- NOTE: Temporarily do away with plugin as I try to understand how this all works
+-- require('dap-vscode-js').setup {
+--   debugger_cmd = { 'js-debug-adapter' },
+--   adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
+-- }
+
 for _, language in ipairs { 'typescript', 'javascript' } do
-  dap.configurations[language] = {
+  require('dap').configurations[language] = {
     {
       type = 'pwa-node',
       request = 'launch',
       name = 'Launch file',
       program = '${file}',
       cwd = '${workspaceFolder}',
-      runtimeExecutable = 'node',
+    },
+    {
+      type = 'pwa-node',
+      request = 'attach',
+      name = 'Attach',
+      processId = require('dap.utils').pick_process,
+      cwd = '${workspaceFolder}',
     },
   }
 end

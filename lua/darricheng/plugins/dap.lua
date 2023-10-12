@@ -14,5 +14,9 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    {
+      'mxsdev/nvim-dap-vscode-js',
+      requires = { 'mfussenegger/nvim-dap' },
+    },
   },
 }
