@@ -27,9 +27,12 @@ require('mason-nvim-dap').setup {
 dap.adapters['pwa-node'] = {
   type = 'server',
   host = '::1',
-  port = 9229,
+  port = '${port}',
   executable = {
     command = 'js-debug-adapter',
+    args = {
+      '${port}',
+    },
   },
 }
 
