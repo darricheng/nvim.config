@@ -50,7 +50,7 @@ dap.adapters = {
 for _, language in ipairs { 'typescript', 'javascript' } do
   -- js-debug-adapter options:
   -- https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md
-  require('dap').configurations[language] = {
+  dap.configurations[language] = {
     {
       type = 'pwa-node',
       request = 'launch',
@@ -86,6 +86,20 @@ for _, language in ipairs { 'typescript', 'javascript' } do
     },
   }
 end
+
+dap.configurations.rust = {
+  {
+    type = 'codelldb',
+    request = 'launch',
+    name = 'Launch file',
+    cwd = '${workspaceFolder}',
+    sourceLanguages = { 'rust' },
+    terminal = 'console',
+    cargo = {
+      args = { 'build' },
+    },
+  },
+}
 
 -- Dap UI setup
 -- For more information, see |:help nvim-dap-ui|
