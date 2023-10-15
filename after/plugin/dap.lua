@@ -36,6 +36,15 @@ dap.adapters = {
       },
     },
   },
+  ['codelldb'] = {
+    type = 'server',
+    host = '::1',
+    port = '${port}',
+    executable = {
+      command = 'codelldb',
+      args = { '--port', '${port}' },
+    },
+  },
 }
 
 for _, language in ipairs { 'typescript', 'javascript' } do
