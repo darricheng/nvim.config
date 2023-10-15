@@ -23,22 +23,24 @@ require('mason-nvim-dap').setup {
   automatic_installation = true,
 }
 
--- TODO: Maybe set this up with mason-nvim-dap?
--- From video on setting up Neovim for NodeJS
--- https://www.youtube.com/watch?v=CVCBHHFXWNE
-dap.adapters['pwa-node'] = {
-  type = 'server',
-  host = '::1',
-  port = '${port}',
-  executable = {
-    command = 'js-debug-adapter',
-    args = {
-      '${port}',
+-- Maybe set this up with mason-nvim-dap handlers?
+dap.adapters = {
+  ['pwa-node'] = {
+    type = 'server',
+    host = '::1',
+    port = '${port}',
+    executable = {
+      command = 'js-debug-adapter',
+      args = {
+        '${port}',
+      },
     },
   },
 }
 
 for _, language in ipairs { 'typescript', 'javascript' } do
+  -- js-debug-adapter options:
+  -- https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md
   require('dap').configurations[language] = {
     {
       type = 'pwa-node',
