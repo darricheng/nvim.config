@@ -1,5 +1,6 @@
 local dap = require 'dap'
 local dapui = require 'dapui'
+local utils = require 'dap.utils'
 
 require('mason-nvim-dap').setup {
   -- Makes a best effort to setup the various debuggers with
@@ -21,7 +22,7 @@ require('mason-nvim-dap').setup {
   automatic_installation = true,
 }
 
--- TODO: Set this up with mason-nvim-dap
+-- TODO: Maybe set this up with mason-nvim-dap?
 -- From video on setting up Neovim for NodeJS
 -- https://www.youtube.com/watch?v=CVCBHHFXWNE
 dap.adapters['pwa-node'] = {
@@ -36,12 +37,6 @@ dap.adapters['pwa-node'] = {
   },
 }
 
--- NOTE: Temporarily do away with plugin as I try to understand how this all works
--- require('dap-vscode-js').setup {
---   debugger_cmd = { 'js-debug-adapter' },
---   adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
--- }
-
 for _, language in ipairs { 'typescript', 'javascript' } do
   require('dap').configurations[language] = {
     {
@@ -54,9 +49,28 @@ for _, language in ipairs { 'typescript', 'javascript' } do
     {
       type = 'pwa-node',
       request = 'attach',
-      name = 'Attach',
-      processId = require('dap.utils').pick_process,
+      name = 'Attach to process ID',
+      processId = utils.pick_process,
       cwd = '${workspaceFolder}',
+    },
+    {
+      type = 'pwa-node',
+      request = 'attach',
+      name = 'Local NestJS (port 9229)',
+      address = 'localhost',
+      port = 9229,
+      cwd = '${workspaceFolder}',
+      restart = true,
+    },
+    {
+      type = 'pwa-node',
+      request = 'attach',
+      name = 'Dockerised NestJS (port 9229)',
+      address = 'localhost',
+      port = 9229,
+      localRoot = '${workspaceFolder}',
+      remoteRoot = 'usr/src/app',
+      restart = true,
     },
   }
 end
