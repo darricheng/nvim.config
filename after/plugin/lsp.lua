@@ -35,6 +35,8 @@ require('mason-lspconfig').setup {
               end
               vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
             end
+            -- NOTE: maybe can change the keymaps to override lsp_zero defaults
+            -- E.g. '<leader>ca' for code action, 'K' for hover, etc.
             map('n', '<leader>rh', rt.hover_actions.hover_actions, '[H]over Actions')
             map('n', '<leader>rc', rt.code_action_group.code_action_group, '[C]ode Action Group')
           end,

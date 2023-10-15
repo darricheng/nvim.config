@@ -18,6 +18,7 @@ require('mason-nvim-dap').setup {
     -- Update this to ensure that you have the debuggers for the langs you want
     'delve',
     'js',
+    'codelldb',
   },
   automatic_installation = true,
 }
