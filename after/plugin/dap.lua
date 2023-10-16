@@ -77,7 +77,7 @@ for _, language in ipairs { 'typescript', 'javascript' } do
     {
       type = 'pwa-node',
       request = 'attach',
-      name = 'Dockerised NestJS (port 9229)',
+      name = 'ZTO - Dockerised NestJS (port 9229)',
       address = 'localhost',
       port = 9229,
       localRoot = '${workspaceFolder}',
