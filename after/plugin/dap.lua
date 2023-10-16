@@ -23,6 +23,10 @@ require('mason-nvim-dap').setup {
   automatic_installation = true,
 }
 
+-- set logging levels to debug why adapters are not working
+-- logs are saved in ~.cache/nvim/dap.log
+dap.set_log_level 'TRACE'
+
 -- Maybe set this up with mason-nvim-dap handlers?
 dap.adapters = {
   ['pwa-node'] = {
@@ -82,6 +86,7 @@ for _, language in ipairs { 'typescript', 'javascript' } do
       port = 9229,
       localRoot = '${workspaceFolder}',
       remoteRoot = 'usr/src/app',
+      -- resolveSourceMapLocations = { '${workspaceFolder}/dist', '!**/node_modules/**' },
       restart = true,
     },
   }
