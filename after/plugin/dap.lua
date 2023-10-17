@@ -42,10 +42,10 @@ dap.adapters = {
   },
   ['codelldb'] = {
     type = 'server',
-    host = '::1',
     port = '${port}',
     executable = {
-      command = 'codelldb',
+      -- command = 'codelldb',
+      command = vim.fn.stdpath 'data' .. '/mason/bin/codelldb',
       args = { '--port', '${port}' },
     },
   },
@@ -98,11 +98,10 @@ dap.configurations.rust = {
     request = 'launch',
     name = 'Launch file',
     cwd = '${workspaceFolder}',
-    sourceLanguages = { 'rust' },
-    terminal = 'console',
-    cargo = {
-      args = { 'build' },
-    },
+    stopOnEntry = false,
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
   },
 }
 
