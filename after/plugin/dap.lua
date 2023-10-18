@@ -25,7 +25,7 @@ require('mason-nvim-dap').setup {
 
 -- set logging levels to debug why adapters are not working
 -- logs are saved in ~.cache/nvim/dap.log
-dap.set_log_level 'TRACE'
+dap.set_log_level 'DEBUG'
 
 -- Maybe set this up with mason-nvim-dap handlers?
 dap.adapters = {
