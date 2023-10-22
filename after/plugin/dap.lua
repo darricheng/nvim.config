@@ -25,7 +25,7 @@ require('mason-nvim-dap').setup {
 
 -- set logging levels to debug why adapters are not working
 -- logs are saved in ~.cache/nvim/dap.log
-dap.set_log_level 'TRACE'
+dap.set_log_level 'DEBUG'
 
 -- Maybe set this up with mason-nvim-dap handlers?
 dap.adapters = {
@@ -42,10 +42,10 @@ dap.adapters = {
   },
   ['codelldb'] = {
     type = 'server',
-    host = '::1',
     port = '${port}',
     executable = {
-      command = 'codelldb',
+      -- command = 'codelldb',
+      command = vim.fn.stdpath 'data' .. '/mason/bin/codelldb',
       args = { '--port', '${port}' },
     },
   },
@@ -98,11 +98,10 @@ dap.configurations.rust = {
     request = 'launch',
     name = 'Launch file',
     cwd = '${workspaceFolder}',
-    sourceLanguages = { 'rust' },
-    terminal = 'console',
-    cargo = {
-      args = { 'build' },
-    },
+    stopOnEntry = false,
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
   },
 }
 
