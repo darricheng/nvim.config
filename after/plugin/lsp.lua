@@ -76,29 +76,29 @@ lsp_zero.on_attach(function(_, bufnr)
   end
 
   -- More info about symbol
-  map('n', 'K', '<cmd>:Lspsaga hover_doc<cr>', 'Hover info about symbol')
-  map('n', 'gpd', '<cmd>:Lspsaga peek_definition<cr>', '[P]eek [D]efinition')
-  map('n', 'gpo', '<cmd>:Lspsaga peek_type_definition<cr>', '[P]eek Type Definition')
+  map('n', 'K', ':Lspsaga hover_doc<cr>', 'Hover info about symbol')
+  map('n', 'gpd', ':Lspsaga peek_definition<cr>', '[P]eek [D]efinition')
+  map('n', 'gpo', ':Lspsaga peek_type_definition<cr>', '[P]eek Type Definition')
 
   -- Goto keymaps
-  map('n', 'gd', '<cmd>:Lspsaga goto_definition<cr>', '[G]oto [D]efinition')
-  map('n', 'go', '<cmd>:Lspsaga goto_type_definition<cr>', '[G]oto Type Definition')
+  map('n', 'gd', ':Lspsaga goto_definition<cr>', '[G]oto [D]efinition')
+  map('n', 'go', ':Lspsaga goto_type_definition<cr>', '[G]oto Type Definition')
   map('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  map('n', 'gI', '<cmd>:Lspsaga finder imp<cr>', '[G]oto [I]mplementation')
-  map('n', 'gr', '<cmd>:Lspsaga finder<cr>', '[G]oto [R]eferences')
+  map('n', 'gI', ':Lspsaga finder imp<cr>', '[G]oto [I]mplementation')
+  map('n', 'gr', ':Lspsaga finder<cr>', '[G]oto [R]eferences')
   map('n', 'gs', vim.lsp.buf.signature_help, '[G]oto [S]ignature')
 
   -- Useful lsp actions
-  map('n', '<leader>rn', '<cmd>:Lspsaga rename<cr>', '[R]e[N]ame')
-  map('n', '<leader>ca', '<cmd>:Lspsaga code_action<cr>', '[C]ode [A]ction')
+  map('n', '<leader>rn', ':Lspsaga rename<cr>', '[R]e[N]ame')
+  map('n', '<leader>ca', ':Lspsaga code_action<cr>', '[C]ode [A]ction')
 
   -- File navigation
-  map('n', '<leader>o', '<cmd>:Lspsaga outline<cr>', '[]')
+  map('n', '<leader>o', ':Lspsaga outline<cr>', '[]')
 
   -- Diagnostics
   map('n', 'gl', vim.diagnostic.open_float, 'Open diagnostic float')
-  map('n', '[d', '<cmd>:Lspsaga diagnostic_jump_prev<cr>', 'Previous diagnostic')
-  map('n', ']d', '<cmd>:Lspsaga diagnostic_jump_next<cr>', 'Next diagnostic')
+  map('n', '[d', ':Lspsaga diagnostic_jump_prev<cr>', 'Previous diagnostic')
+  map('n', ']d', ':Lspsaga diagnostic_jump_next<cr>', 'Next diagnostic')
 
   -- formatting
   map('n', '<leader>fl', vim.lsp.buf.format, '[F]ormat with [L]SP')
