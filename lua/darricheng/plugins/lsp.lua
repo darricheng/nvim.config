@@ -5,6 +5,13 @@ return {
   },
   -- LSP
   'neovim/nvim-lspconfig',
+  {
+    'nvimdev/lspsaga.nvim',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
 
   -- Autocompletion
   'hrsh7th/nvim-cmp',
