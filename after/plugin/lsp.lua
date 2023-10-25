@@ -93,7 +93,7 @@ lsp_zero.on_attach(function(_, bufnr)
   map('n', '<leader>ca', ':Lspsaga code_action<cr>', '[C]ode [A]ction')
 
   -- File navigation
-  map('n', '<leader>o', ':Lspsaga outline<cr>', '[]')
+  map('n', '<leader>o', ':Lspsaga outline<cr>', '[O]utline')
 
   -- Diagnostics
   map('n', 'gl', vim.diagnostic.open_float, 'Open diagnostic float')
