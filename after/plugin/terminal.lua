@@ -16,7 +16,7 @@ local map = function(keys, func, desc)
   vim.keymap.set('n', keys, func, { desc = desc })
 end
 
-map('t', '<cmd>Lspsaga term_toggle', 'Open [F]loat')
+map('t', ':Lspsaga term_toggle<cr>', 'Open [F]loat')
 
 -- Must call gotoTerminal in an anonymous function.
 -- Otherwise it will be called and immediately opens the terminal when I open neovim.
