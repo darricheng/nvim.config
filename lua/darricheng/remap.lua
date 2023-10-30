@@ -35,7 +35,8 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 -- Use when pasting over text in visual mode
 -- This will retain the original text in the register so you can paste it again
 -- As compared to normal p to paste which will replace the register with the deleted word
-vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste text and retain register' })
+-- vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste text and retain register' })
+-- NOTE: Leaving this here as a reminder. I can just use capital P to paste over text in visual mode to retain the text in the register
 
 -- Delete text without putting it in the register
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete text into black hole' })
