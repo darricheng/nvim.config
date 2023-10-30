@@ -1,5 +1,5 @@
 -- Set the default colorscheme for my editor
-vim.cmd.colorscheme 'tokyonight'
+vim.cmd.colorscheme 'catppuccin-frappe'
 
 -- no-neck-pain configs
 require('no-neck-pain').setup {
