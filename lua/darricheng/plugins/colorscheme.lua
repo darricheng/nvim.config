@@ -5,4 +5,5 @@ return {
   'rebelot/kanagawa.nvim',
   'EdenEast/nightfox.nvim',
   'sainnhe/everforest',
+  'junegunn/seoul256.vim',
 }
