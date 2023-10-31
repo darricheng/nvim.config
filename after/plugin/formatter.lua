@@ -53,6 +53,9 @@ formatter.setup {
     python = {
       require('formatter.filetypes.python').black,
     },
+    php = {
+      require('formatter.filetypes.php').php_cs_fixer,
+    },
   },
 }
 
