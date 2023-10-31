@@ -77,8 +77,8 @@ lsp_zero.on_attach(function(_, bufnr)
 
   -- More info about symbol
   map('n', 'K', ':Lspsaga hover_doc<cr>', 'Hover info about symbol')
-  map('n', '<leader>gpd', ':Lspsaga peek_definition<cr>', '[P]eek [D]efinition')
-  map('n', '<leader>gpo', ':Lspsaga peek_type_definition<cr>', '[P]eek Type Definition')
+  map('n', '<leader>pd', ':Lspsaga peek_definition<cr>', '[P]eek [D]efinition')
+  map('n', '<leader>po', ':Lspsaga peek_type_definition<cr>', '[P]eek Type Definition')
 
   -- Goto keymaps
   map('n', 'gd', ':Lspsaga goto_definition<cr>', '[G]oto [D]efinition')
