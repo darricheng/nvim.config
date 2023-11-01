@@ -34,3 +34,12 @@ vim.g.undotree_WindowLayout = 2
 -- width of the undotree window
 vim.g.undotree_SplitWidth = 40
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = '[U]ndoTree' })
+
+vim.keymap.set('n', '<leader>z', ':ZenMode<cr>', { desc = '[Z]enMode' })
+require('zen-mode').setup {
+  plugins = {
+    tmux = {
+      enabled = true,
+    },
+  },
+}

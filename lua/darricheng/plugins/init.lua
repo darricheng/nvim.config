@@ -101,11 +101,13 @@ return {
   -- more expressive undos
   'mbbill/undotree',
 
+  -- Editor modifications
   {
     -- Center the editor so that I don't have to constantly be looking to the left of my screen
     'shortcuts/no-neck-pain.nvim',
     version = '*',
   },
+  'folke/zen-mode.nvim',
 
   -- Highlight TODO comments and stuff
   {
