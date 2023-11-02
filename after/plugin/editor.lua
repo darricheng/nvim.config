@@ -8,13 +8,13 @@ require('no-neck-pain').setup {
     -- enables key mappings for no-neck-pain
     enabled = true,
     -- toggle the plugin
-    toggle = '<Leader>np',
+    toggle = '<leader>np',
     -- increase the width (+5) of the main window.
-    widthUp = '<Leader>n+',
+    widthUp = '<leader>n+',
     -- decrease the width (-5) of the main window.
-    widthDown = '<Leader>n-',
+    widthDown = '<leader>n-',
     -- toggle the scratchpad feature.
-    scratchPad = '<Leader>ns',
+    scratchPad = '<leader>ns',
   },
 }
 
