@@ -1,6 +1,9 @@
 local hm = require 'harpoon.mark'
 local hu = require 'harpoon.ui'
 
+-- NOTE: This can actually be done with marks
+-- so can consider doing away with harpoon altogether
+
 local map = function(keys, func, desc)
   if desc then
     desc = 'Harpoon: ' .. desc
