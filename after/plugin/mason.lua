@@ -9,6 +9,8 @@ require('mason-tool-installer').setup {
     -- lua
     'stylua',
     'luacheck',
+    -- go
+    'goimports',
     -- bash
     'shellcheck', -- linter
     'shfmt', -- formatter

@@ -45,7 +45,7 @@ formatter.setup {
       require('formatter.filetypes.rust').rustfmt,
     },
     go = {
-      require('formatter.filetypes.go').gofmt,
+      require('formatter.filetypes.go').goimports,
     },
     markdown = {
       require('formatter.filetypes.markdown').prettierd,
