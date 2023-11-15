@@ -3,6 +3,7 @@ local hu = require 'harpoon.ui'
 
 -- NOTE: This can actually be done with marks
 -- so can consider doing away with harpoon altogether
+-- But then again, there are reasons to use harpoon (see the repo README)
 
 local map = function(keys, func, desc)
   if desc then
