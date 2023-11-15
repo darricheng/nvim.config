@@ -76,7 +76,10 @@ return {
     build = ':TSUpdate',
   },
   'nvim-treesitter/nvim-treesitter-context',
-  'nvim-treesitter/playground',
+  {
+    'nvim-treesitter/playground',
+    event = 'VeryLazy',
+  },
 
   -- autopairs
   {
@@ -95,7 +98,10 @@ return {
   -- For easier access of those few frequently accessed files
   'ThePrimeagen/harpoon',
   -- Plain text table creating and formatting, mainly for markdown files
-  'dhruvasagar/vim-table-mode',
+  {
+    'dhruvasagar/vim-table-mode',
+    event = 'VeryLazy',
+  },
   -- Formatting and (maybe) linting
   'mhartington/formatter.nvim',
   -- more expressive undos
@@ -129,5 +135,10 @@ return {
 
   -- preview markdown directly in neovim
   -- install `glow` with `brew install glow` to use this
-  { 'ellisonleao/glow.nvim', config = true, cmd = 'Glow' },
+  {
+    'ellisonleao/glow.nvim',
+    config = true,
+    cmd = 'Glow',
+    event = 'VeryLazy',
+  },
 }

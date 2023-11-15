@@ -4,5 +4,6 @@ return {
   {
     -- Vim Motions practice
     'ThePrimeagen/vim-be-good',
+    event = 'VeryLazy',
   },
 }
