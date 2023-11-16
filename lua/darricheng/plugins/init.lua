@@ -48,7 +48,11 @@ return {
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+    event = 'VeryLazy',
+  },
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -93,10 +97,14 @@ return {
   {
     'folke/trouble.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
+    event = 'VeryLazy',
   },
 
   -- For easier access of those few frequently accessed files
-  'ThePrimeagen/harpoon',
+  {
+    'ThePrimeagen/harpoon',
+    event = 'VeryLazy',
+  },
   -- Plain text table creating and formatting, mainly for markdown files
   {
     'dhruvasagar/vim-table-mode',
@@ -105,19 +113,27 @@ return {
   -- Formatting and (maybe) linting
   'mhartington/formatter.nvim',
   -- more expressive undos
-  'mbbill/undotree',
+  {
+    'mbbill/undotree',
+    event = 'VeryLazy',
+  },
 
   -- Editor modifications
   {
     -- Center the editor so that I don't have to constantly be looking to the left of my screen
     'shortcuts/no-neck-pain.nvim',
     version = '*',
+    event = 'VeryLazy',
   },
-  'folke/zen-mode.nvim',
+  {
+    'folke/zen-mode.nvim',
+    event = 'VeryLazy',
+  },
 
   -- Highlight TODO comments and stuff
   {
     'folke/todo-comments.nvim',
+    event = 'VeryLazy',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
