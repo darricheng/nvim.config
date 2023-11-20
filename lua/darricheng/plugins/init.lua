@@ -41,19 +41,6 @@ return {
   -- Seems to be a dependency for many plugins
   'nvim-lua/plenary.nvim',
 
-  -- Add indentation guides on blank lines
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-  },
-
-  -- "gc" to comment visual regions/lines
-  {
-    'numToStr/Comment.nvim',
-    opts = {},
-    event = 'VeryLazy',
-  },
-
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
 
@@ -85,14 +72,6 @@ return {
     event = 'VeryLazy',
   },
 
-  -- autopairs
-  {
-    'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup {}
-    end,
-  },
-
   -- pick out errors easily
   {
     'folke/trouble.nvim',
@@ -112,42 +91,6 @@ return {
   },
   -- Formatting and (maybe) linting
   'mhartington/formatter.nvim',
-  -- more expressive undos
-  {
-    'mbbill/undotree',
-    event = 'VeryLazy',
-  },
-
-  -- Editor modifications
-  {
-    -- Center the editor so that I don't have to constantly be looking to the left of my screen
-    'shortcuts/no-neck-pain.nvim',
-    version = '*',
-    event = 'VeryLazy',
-  },
-  {
-    'folke/zen-mode.nvim',
-    event = 'VeryLazy',
-  },
-
-  -- Highlight TODO comments and stuff
-  {
-    'folke/todo-comments.nvim',
-    event = 'VeryLazy',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = {},
-  },
-
-  -- deal with surrounds, such as brackets, quotes, etc
-  {
-    'kylechui/nvim-surround',
-    version = '*',
-    event = 'VeryLazy',
-    config = function()
-      -- empty config to use defaults
-      require('nvim-surround').setup {}
-    end,
-  },
 
   -- preview markdown directly in neovim
   -- install `glow` with `brew install glow` to use this
@@ -156,5 +99,13 @@ return {
     config = true,
     cmd = 'Glow',
     event = 'VeryLazy',
+  },
+  {
+    'stevearc/oil.nvim',
+    opts = {
+      default_file_explorer = false,
+    },
+    -- Optional dependencies
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
 }
