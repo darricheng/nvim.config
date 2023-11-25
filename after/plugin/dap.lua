@@ -152,4 +152,9 @@ map('B', function()
 end, 'Set [B]reakpoint')
 
 -- dap-ui
-map('u', dapui.toggle, 'Toggle [U]I')
+map('u', function()
+  dapui.toggle {
+    -- Always open the nvim dap ui in the default sizes
+    reset = true,
+  }
+end, 'Toggle [U]I')
