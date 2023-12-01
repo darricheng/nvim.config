@@ -18,7 +18,7 @@ require('no-neck-pain').setup {
 }
 -- NoNeckPain can be a bit buggy when more than one window is open,
 -- so this keymap resets the state of the windows by toggling the plugin twice
-vim.keymap.set('n', '<leader>nr', '<cmd>NoNeckPain<cr>:NoNeckPain<cr>', { desc = '[N]oNeckPain: Reset (double toggle)' })
+vim.keymap.set('n', '<leader>nr', '<cmd>NoNeckPain<cr><cmd>NoNeckPain<cr>', { desc = '[N]oNeckPain: Reset (double toggle)' })
 
 -- blankline indentation configs
 require('ibl').setup {
