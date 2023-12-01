@@ -45,6 +45,15 @@ require('zen-mode').setup {
   },
 }
 
+require('notify').setup {
+  max_width = 80,
+  max_height = 30,
+}
+-- open the message history in telescope
+vim.keymap.set('n', '<leader>ms', function()
+  require('telescope').extensions.notify.notify()
+end, { desc = '[M]essage [S]earch' })
+
 require('noice').setup {
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
