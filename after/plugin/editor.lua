@@ -46,8 +46,10 @@ require('zen-mode').setup {
 }
 
 require('notify').setup {
-  max_width = 60,
-  max_height = 16,
+  -- use non-opacity changing effect so that screen doesn't flicker
+  stages = 'slide',
+  max_width = 80,
+  max_height = 24,
 }
 -- open the message history in telescope
 vim.keymap.set('n', '<leader>ms', function()
