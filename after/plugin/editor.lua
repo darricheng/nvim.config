@@ -46,8 +46,8 @@ require('zen-mode').setup {
 }
 
 require('notify').setup {
-  max_width = 80,
-  max_height = 8,
+  max_width = 60,
+  max_height = 16,
 }
 -- open the message history in telescope
 vim.keymap.set('n', '<leader>ms', function()
