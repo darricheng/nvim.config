@@ -18,7 +18,7 @@ require('no-neck-pain').setup {
 }
 -- NoNeckPain can be a bit buggy when more than one window is open,
 -- so this keymap resets the state of the windows by toggling the plugin twice
-vim.keymap.set('n', '<leader>nr', ':NoNeckPain<cr>:NoNeckPain<cr>', { desc = '[N]oNeckPain: Reset (double toggle)' })
+vim.keymap.set('n', '<leader>nr', '<cmd>NoNeckPain<cr>:NoNeckPain<cr>', { desc = '[N]oNeckPain: Reset (double toggle)' })
 
 -- blankline indentation configs
 require('ibl').setup {
@@ -36,7 +36,7 @@ vim.g.undotree_WindowLayout = 2
 vim.g.undotree_SplitWidth = 40
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = '[U]ndoTree' })
 
-vim.keymap.set('n', '<leader>z', ':ZenMode<cr>', { desc = '[Z]enMode' })
+vim.keymap.set('n', '<leader>z', '<cmd>ZenMode<cr>', { desc = '[Z]enMode' })
 require('zen-mode').setup {
   plugins = {
     tmux = {
