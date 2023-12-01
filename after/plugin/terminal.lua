@@ -16,9 +16,6 @@ local map = function(keys, func, desc)
   vim.keymap.set('n', keys, func, { desc = desc })
 end
 
--- TODO: Close the floating terminal with the Esc key
--- Thinking of mapping the term_toggle command to Esc when the float is open,
--- then unmap it when the float is closed.
 map('t', '<cmd>Lspsaga term_toggle<cr>', 'Open [F]loat')
 
 -- Must call gotoTerminal in an anonymous function.
