@@ -51,4 +51,17 @@ return {
       require('nvim-surround').setup {}
     end,
   },
+  {
+    'rcarriga/nvim-notify',
+    event = 'VeryLazy',
+  },
+
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
+    },
+  },
 }

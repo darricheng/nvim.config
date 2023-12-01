@@ -17,6 +17,7 @@ require('nvim-treesitter.configs').setup {
     'markdown_inline',
     'json',
     'toml',
+    'regex',
   },
   sync_install = false,
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
