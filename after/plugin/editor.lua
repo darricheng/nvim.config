@@ -64,4 +64,18 @@ require('noice').setup {
     inc_rename = false, -- enables an input dialog for inc-rename.nvim
     lsp_doc_border = false, -- add a border to hover docs and signature help
   },
+  views = {
+    cmdline_popup = {
+      position = {
+        row = 20,
+        col = '50%',
+      },
+    },
+    cmdline_popupmenu = {
+      position = {
+        row = 23,
+        col = '50%',
+      },
+    },
+  },
 }
