@@ -42,10 +42,10 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete text into black hole' })
 
 -- Copy filename stuff
-vim.keymap.set('n', '<leader>cf', [[:let @+=expand("%:t")<CR>]], { desc = 'Copy filename' })
-vim.keymap.set('n', '<leader>cp', [[:let @+=expand("%:p")<CR>]], { desc = 'Copy absolute filepath' })
-vim.keymap.set('n', '<leader>cr', [[:let @+=expand("%")<CR>]], { desc = 'Copy relative filepath' })
-vim.keymap.set('n', '<leader>cd', [[:let @+=expand("%:p:h")<CR>]], { desc = 'Copy directory name' })
+vim.keymap.set('n', '<leader>cf', [[<cmd>let @+=expand("%:t")<CR>]], { desc = 'Copy filename' })
+vim.keymap.set('n', '<leader>cp', [[<cmd>let @+=expand("%:p")<CR>]], { desc = 'Copy absolute filepath' })
+vim.keymap.set('n', '<leader>cr', [[<cmd>let @+=expand("%")<CR>]], { desc = 'Copy relative filepath' })
+vim.keymap.set('n', '<leader>cd', [[<cmd>let @+=expand("%:p:h")<CR>]], { desc = 'Copy directory name' })
 
 -- I use the command :E to exit files and go back to the file explorer
 -- :E actually calls :Explore when there are no other commands starting with E
