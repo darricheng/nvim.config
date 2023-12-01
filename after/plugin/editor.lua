@@ -50,6 +50,7 @@ require('notify').setup {
   stages = 'slide',
   max_width = 80,
   max_height = 24,
+  fps = 60,
 }
 -- open the message history in telescope
 vim.keymap.set('n', '<leader>ms', function()
