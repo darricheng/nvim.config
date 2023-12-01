@@ -1,7 +1,6 @@
 -- Set the default colorscheme for my editor
 vim.cmd.colorscheme 'catppuccin-frappe'
 
--- no-neck-pain configs
 require('no-neck-pain').setup {
   width = 110,
   mappings = {
@@ -31,7 +30,6 @@ require('ibl').setup {
   },
 }
 
--- undotree configs
 -- open undotree on the right and diff below
 vim.g.undotree_WindowLayout = 2
 -- width of the undotree window
@@ -47,7 +45,6 @@ require('zen-mode').setup {
   },
 }
 
--- noice configs
 require('noice').setup {
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
