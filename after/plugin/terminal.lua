@@ -19,8 +19,7 @@ end
 -- TODO: Close the floating terminal with the Esc key
 -- Thinking of mapping the term_toggle command to Esc when the float is open,
 -- then unmap it when the float is closed.
-local term_open = false
-map('t', ':Lspsaga term_toggle<cr>', 'Open [F]loat')
+map('t', '<cmd>Lspsaga term_toggle<cr>', 'Open [F]loat')
 
 -- Must call gotoTerminal in an anonymous function.
 -- Otherwise it will be called and immediately opens the terminal when I open neovim.
