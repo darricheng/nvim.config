@@ -65,6 +65,9 @@ require('mason-lspconfig').setup {
   },
 }
 
+-- Plugin for outline with lsp
+require('aerial').setup {}
+
 -- lsp functionality keymaps
 lsp_zero.on_attach(function(_, bufnr)
   -- function to reduce boilerplate for setting keymaps
@@ -93,7 +96,8 @@ lsp_zero.on_attach(function(_, bufnr)
   map('n', '<leader>ca', '<cmd>Lspsaga code_action<cr>', '[C]ode [A]ction')
 
   -- File navigation
-  map('n', '<leader>o', '<cmd>Lspsaga outline<cr>', '[O]utline')
+  -- map('n', '<leader>o', '<cmd>Lspsaga outline<cr>', '[O]utline')
+  map('n', '<leader>o', '<cmd>AerialToggle!<cr>', '[O]utline')
 
   -- Diagnostics
   map('n', 'gl', vim.diagnostic.open_float, 'Open diagnostic float')
