@@ -46,9 +46,4 @@ return {
 
   -- Additional lua configuration, makes nvim stuff amazing!
   'folke/neodev.nvim',
-
-  {
-    'windwp/nvim-ts-autotag',
-    ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'svelte', 'html', 'markdown' },
-  },
 }

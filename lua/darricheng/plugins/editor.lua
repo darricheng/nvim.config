@@ -28,6 +28,14 @@ return {
       require('nvim-autopairs').setup {}
     end,
   },
+  -- auto html tag closing
+  {
+    'windwp/nvim-ts-autotag',
+    ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'svelte', 'html', 'markdown' },
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end,
+  },
   -- more expressive undos
   {
     'mbbill/undotree',
