@@ -35,7 +35,6 @@ return {
     event = 'VeryLazy',
   },
   'rafamadriz/friendly-snippets',
-  { 'simrat39/rust-tools.nvim', ft = 'rust' },
 
   -- Useful status updates for LSP
   -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`

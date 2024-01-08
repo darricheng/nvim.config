@@ -38,26 +38,6 @@ require('mason-lspconfig').setup {
   },
   handlers = {
     lsp_zero.default_setup,
-    -- use rust tools to setup rust analyzer instead
-    rust_analyzer = function()
-      local rt = require 'rust-tools'
-      rt.setup {
-        server = {
-          on_attach = function(_, bufnr)
-            local map = function(mode, keys, func, desc)
-              if desc then
-                desc = '[R]ust Tools: ' .. desc
-              end
-              vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
-            end
-            -- NOTE: maybe can change the keymaps to override lsp_zero defaults
-            -- E.g. '<leader>ca' for code action, 'K' for hover, etc.
-            map('n', '<leader>rh', rt.hover_actions.hover_actions, '[H]over Actions')
-            map('n', '<leader>rc', rt.code_action_group.code_action_group, '[C]ode Action Group')
-          end,
-        },
-      }
-    end,
     lua_ls = function()
       local lua_opts = lsp_zero.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
