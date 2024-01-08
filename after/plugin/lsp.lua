@@ -107,7 +107,6 @@ local cmp = require 'cmp'
 
 cmp.setup {
   sources = {
-    { name = 'copilot' },
     { name = 'path' },
     { name = 'nvim_lsp' },
     { name = 'buffer', keyword_length = 3 },
