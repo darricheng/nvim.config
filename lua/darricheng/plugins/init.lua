@@ -109,5 +109,4 @@ return {
     -- Optional dependencies
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
-  { 'akinsho/toggleterm.nvim', version = '*', event = 'VeryLazy' },
 }
