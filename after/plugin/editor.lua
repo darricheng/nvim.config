@@ -1,5 +1,5 @@
 -- Set the default colorscheme for my editor
-vim.cmd.colorscheme 'catppuccin-frappe'
+vim.cmd.colorscheme 'catppuccin-mocha'
 
 require('no-neck-pain').setup {
   width = 110,
