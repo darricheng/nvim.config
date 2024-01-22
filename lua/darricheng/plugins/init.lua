@@ -2,6 +2,8 @@ return {
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  -- NOTE: I need to learn more about git worktrees to properly use this plugin
+  { 'ThePrimeagen/git-worktree.nvim', event = 'VeryLazy' },
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
