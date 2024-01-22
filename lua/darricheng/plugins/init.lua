@@ -111,4 +111,21 @@ return {
     -- Optional dependencies
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
+
+  -- Obsidian!
+  {
+    'epwalsh/obsidian.nvim',
+    version = '*',
+    lazy = true,
+    event = {
+      'BufReadPre ' .. vim.fn.expand '~' .. '/Obsidian/darric_second_brain/**.md',
+      'BufNewFile ' .. vim.fn.expand '~' .. '/Obsidian/darric_second_brain/**.md',
+    },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/nvim-cmp',
+      'nvim-telescope/telescope.nvim',
+      'nvim-treesitter',
+    },
+  },
 }
