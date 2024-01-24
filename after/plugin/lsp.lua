@@ -105,6 +105,21 @@ require('luasnip.loaders.from_vscode').lazy_load()
 -- autocompletion
 local cmp = require 'cmp'
 
+local function select_next()
+  if cmp.visible() then
+    cmp.select_next_item { behavior = 'select' }
+  else
+    cmp.complete()
+  end
+end
+local function select_prev()
+  if cmp.visible() then
+    cmp.select_prev_item { behavior = 'select' }
+  else
+    cmp.complete()
+  end
+end
+
 cmp.setup {
   sources = {
     { name = 'path' },
@@ -113,20 +128,10 @@ cmp.setup {
     { name = 'luasnip', keyword_length = 2 },
   },
   mapping = cmp.mapping.preset.insert {
-    ['<C-p>'] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_prev_item { behavior = 'select' }
-      else
-        cmp.complete()
-      end
-    end),
-    ['<C-n>'] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_next_item { behavior = 'select' }
-      else
-        cmp.complete()
-      end
-    end),
+    ['<C-n>'] = cmp.mapping(select_next),
+    ['<C-j>'] = cmp.mapping(select_next),
+    ['<C-p>'] = cmp.mapping(select_prev),
+    ['<C-k>'] = cmp.mapping(select_prev),
     ['<C-y>'] = cmp.mapping.confirm {
       -- selects the first item if none are selected
       select = true,
