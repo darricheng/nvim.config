@@ -4,9 +4,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Change leader key for table mode plugin
-vim.g.table_mode_map_prefix = '<leader>mt'
-
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience

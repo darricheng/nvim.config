@@ -90,6 +90,10 @@ return {
   {
     'dhruvasagar/vim-table-mode',
     ft = 'markdown',
+    init = function()
+      -- Change prefix for table mode plugin shortcuts
+      vim.g.table_mode_map_prefix = '<leader>mt'
+    end,
   },
   -- Formatting and (maybe) linting
   'mhartington/formatter.nvim',
